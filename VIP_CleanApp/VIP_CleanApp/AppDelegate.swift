@@ -15,7 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let window = self.findOrCreateWindow()
+        
+        ListConfigurator.configure { (vc) -> () in
+            
+            let nc = UINavigationController(rootViewController: vc)
+            window.rootViewController = nc
+            window.makeKeyAndVisible()
+        }
+        
+        self.window = window
+        
+        
         return true
     }
 
@@ -42,5 +54,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    
+    func findOrCreateWindow() -> UIWindow {
+        
+        if let window = self.window {
+            
+            return window
+        } else {
+            
+            let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window = window
+            return window
+        }
+    }
+
+    
+    func findOrCreateNavigationControllerAndPush(vc: UIViewController) {
+        
+        let window = self.findOrCreateWindow()
+        guard let nc = window.rootViewController as? UINavigationController else {
+            
+            let navController = UINavigationController(rootViewController: vc)
+            window.rootViewController = navController
+            window.makeKeyAndVisible()
+            return
+        }
+        
+        nc.pushViewController(vc, animated: true)
+    }
+    
 }
 
