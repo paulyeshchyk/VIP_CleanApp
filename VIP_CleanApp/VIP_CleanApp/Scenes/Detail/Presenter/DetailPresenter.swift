@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DetailPresenter: DetailVIP_PresenterProtocol {
+class DetailPresenter {
 
-    var output:DetailVIP_ViewProtocol?
-    func presentFetchedData(data:AnyObject) {
+    var output:DetailViewProtocol?
+    func presentFetchedData(data:String?) {
         
         
         guard let output = self.output else {

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ListPresenter: ListVIP_PresenterProtocol {
+class ListPresenter {
 
-    var output:ListVIP_ViewProtocol?
+    var output:ListViewProtocol?
     
     func presentFetchedData(data: AnyObject) {
 

@@ -8,13 +8,33 @@
 
 import UIKit
 
+
+extension DetailViewController:DetailViewProtocol {
+    
+}
+
+extension DetailInteractor:DetailViewInputProtocol, DetailViewOutputProtocol {
+    
+}
+
+extension DetailPresenter:DetailPresenterProtocol {
+    
+}
+
+extension DetailRouter:DetailViewRouterProtocol {
+    
+}
+
 class DetailConfigurator: NSObject {
 
-    static func configure(index:Int, data:AnyObject?, callback:ConfiguratorCallback) {
+    static func configure(index:Int, data:String, callback:ConfiguratorCallback) {
         
         let view = DetailViewController(nibName:"DetailViewController", bundle: NSBundle.mainBundle())
         let interactor = DetailInteractor()
+        let router = DetailRouter()
         view.output = interactor
+        view.input = interactor
+        view.router = router
         
         interactor.index = index
         interactor.data = data
@@ -23,8 +43,6 @@ class DetailConfigurator: NSObject {
         presenter.output = view
         interactor.output = presenter
         
-        let router = DetailRouter()
-        view.router = router
         
         callback(vc: view)
         

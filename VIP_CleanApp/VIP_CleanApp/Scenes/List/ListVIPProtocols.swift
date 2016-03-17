@@ -8,26 +8,37 @@
 
 import Foundation
 
-protocol ListVIP_ViewProtocol:VIP_ViewProtocol {
+protocol ListViewOutputProtocol {
     
-    var output:ListVIP_InteractorProtocol? {get set}
-    var router:ListVIP_RouterProtocol? {get set}
+    func fetchData()
+}
+
+protocol ListViewProtocol {
+    
+    var output:ListViewOutputProtocol? {get set}
+    var router:ListViewRouterProtocol? {get set}
     
     func displayFetchedData(data:AnyObject)
 }
 
-protocol ListVIP_InteractorProtocol:VIP_InteractorProtocol {
+protocol ListIteractorOutputProtocol {
     
-    var output:ListVIP_PresenterProtocol? {get set}
-}
-
-protocol ListVIP_PresenterProtocol:VIP_PresenterProtocol {
-    
-    var output:ListVIP_ViewProtocol? {get set}
     func presentFetchedData(data:AnyObject)
 }
 
-protocol ListVIP_RouterProtocol:VIP_RouterProtocol {
+protocol ListInteractorProtocol {
     
-    func openDetail(index:Int, data:AnyObject)
+    var output:ListIteractorOutputProtocol? {get set}
+    func fetchData()
+}
+
+protocol ListPresenterProtocol {
+    
+    var output:ListViewProtocol? {get set}
+    func presentFetchedData(data:AnyObject)
+}
+
+protocol ListViewRouterProtocol {
+    
+    func openDetail(index:Int, data:String)
 }

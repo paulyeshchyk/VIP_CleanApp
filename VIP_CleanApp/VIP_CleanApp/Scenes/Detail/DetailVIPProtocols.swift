@@ -8,26 +8,42 @@
 
 import Foundation
 
-protocol DetailVIP_ViewProtocol:VIP_ViewProtocol {
+
+typealias DetailInteractorUpdateCallback = ()->()
+
+protocol DetailViewInputProtocol {
     
-    var output:DetailVIP_InteractorProtocol? {get set}
-    var router:DetailVIP_RouterProtocol? {get set}
-    
-    func displayFetchedData(data:AnyObject)
+    func updateData(data: String, callback:DetailInteractorUpdateCallback)
 }
 
-protocol DetailVIP_InteractorProtocol:VIP_InteractorProtocol {
+protocol DetailViewOutputProtocol {
     
-    var output:DetailVIP_PresenterProtocol? {get set}
+    func fetchData()
 }
 
-protocol DetailVIP_PresenterProtocol:VIP_PresenterProtocol {
+protocol DetailViewRouterProtocol {
     
-    var output:DetailVIP_ViewProtocol? {get set}
-    func presentFetchedData(data:AnyObject)
+    func closeDetail()
 }
 
-protocol DetailVIP_RouterProtocol:VIP_RouterProtocol {
+protocol DetailViewProtocol {
     
-//    func openDetail(data:AnyObject)
+    var input:DetailViewInputProtocol? {get set}
+    var router:DetailViewRouterProtocol? {get set}
+    var output: DetailViewOutputProtocol? {get set}
+    
+    func displayFetchedData(data:String?)
 }
+
+protocol DetailInteractorProtocol {
+    
+    var output:DetailPresenterProtocol? {get set}
+    func updateData(data: String, callback:DetailInteractorUpdateCallback)
+}
+
+protocol DetailPresenterProtocol {
+    
+    var output:DetailViewProtocol? {get set}
+    func presentFetchedData(data:String?)
+}
+

@@ -24,6 +24,7 @@
 		1D729A4B1C99999C00548428 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D729A491C99999C00548428 /* DetailViewController.swift */; };
 		1D729A4C1C99999C00548428 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D729A4A1C99999C00548428 /* DetailViewController.xib */; };
 		1D729A4E1C9999F400548428 /* DetailVIPProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D729A4D1C9999F400548428 /* DetailVIPProtocols.swift */; };
+		1D729A521C9A748400548428 /* VIP_DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D729A511C9A748400548428 /* VIP_DataLayer.swift */; };
 		1DD107291C99441200146E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD107281C99441200146E91 /* AppDelegate.swift */; };
 		1DD1072B1C99441200146E91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1072A1C99441200146E91 /* ViewController.swift */; };
 		1DD107301C99441200146E91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DD1072F1C99441200146E91 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		1D729A491C99999C00548428 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1D729A4A1C99999C00548428 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		1D729A4D1C9999F400548428 /* DetailVIPProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVIPProtocols.swift; sourceTree = "<group>"; };
+		1D729A511C9A748400548428 /* VIP_DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIP_DataLayer.swift; sourceTree = "<group>"; };
 		1DD107251C99441200146E91 /* VIP_CleanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIP_CleanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD107281C99441200146E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DD1072A1C99441200146E91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1D729A4F1C9A746E00548428 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				1D729A501C9A746E00548428 /* DataLayer */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		1D729A501C9A746E00548428 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				1D729A511C9A748400548428 /* VIP_DataLayer.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
 		1DD1071C1C99441200146E91 = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				1D729A2F1C99919000548428 /* VIPProtocols.swift */,
+				1D729A4F1C9A746E00548428 /* Layers */,
 				1DD107561C99445200146E91 /* Scenes */,
 				1DD107281C99441200146E91 /* AppDelegate.swift */,
 				1DD1072A1C99441200146E91 /* ViewController.swift */,
@@ -424,6 +443,7 @@
 				1DD107291C99441200146E91 /* AppDelegate.swift in Sources */,
 				1D729A441C99995600548428 /* DetailPresenter.swift in Sources */,
 				1D729A4B1C99999C00548428 /* DetailViewController.swift in Sources */,
+				1D729A521C9A748400548428 /* VIP_DataLayer.swift in Sources */,
 				1D729A351C99936000548428 /* ListVIPProtocols.swift in Sources */,
 				1D729A261C998AE500548428 /* ListViewController.swift in Sources */,
 			);

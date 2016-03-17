@@ -10,6 +10,23 @@ import UIKit
 
 typealias ConfiguratorCallback = (vc:UIViewController) -> ()
 
+extension ListViewController:ListViewProtocol {
+    
+}
+
+extension ListPresenter:ListPresenterProtocol,ListIteractorOutputProtocol {
+    
+}
+
+extension ListInteractor:ListViewOutputProtocol {
+    
+}
+
+extension ListRouter:ListViewRouterProtocol {
+    
+}
+
+
 class ListConfigurator: NSObject {
 
     static func configure(callback:ConfiguratorCallback) {

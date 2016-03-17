@@ -8,6 +8,21 @@
 
 import UIKit
 
-class DetailRouter: DetailVIP_RouterProtocol {
+class DetailRouter {
 
+
+    func closeDetail() {
+        
+        guard let delegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
+            
+            return
+        }
+        
+        guard let nc = delegate.findNavigationController() else {
+
+            return
+        }
+        nc.popViewControllerAnimated(true)
+
+    }
 }

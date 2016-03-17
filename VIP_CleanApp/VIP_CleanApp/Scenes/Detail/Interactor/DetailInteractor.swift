@@ -8,10 +8,11 @@
 
 import UIKit
 
-class DetailInteractor: DetailVIP_InteractorProtocol {
 
-    var output:DetailVIP_PresenterProtocol?
-    var data:AnyObject?
+class DetailInteractor: DetailInteractorProtocol {
+
+    var output:DetailPresenterProtocol?
+    var data:String?
     var index:Int?
 
     func fetchData() {
@@ -21,16 +22,12 @@ class DetailInteractor: DetailVIP_InteractorProtocol {
             return
         }
         
-        guard let data = self.data else {
-
-            return
-        }
-        
-        output.presentFetchedData(data)
+        output.presentFetchedData(self.data)
     }
     
-    func updateData(data: String) {
+    func updateData(data: String, callback:DetailInteractorUpdateCallback) {
         
-        
+        VIP_DataLayer.sharedInstance.updateObjectAtIndex(self.index!, data: data)
+        callback()
     }
 }

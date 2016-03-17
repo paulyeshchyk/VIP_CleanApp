@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ListInteractor: ListVIP_InteractorProtocol {
+class ListInteractor: ListInteractorProtocol {
 
-    var output:ListVIP_PresenterProtocol?
-    var dataset:[String] = ["C", "D"]
+    var output:ListIteractorOutputProtocol?
     
     func fetchData() {
         
@@ -19,10 +18,9 @@ class ListInteractor: ListVIP_InteractorProtocol {
             return
         }
         
+        let dataset = VIP_DataLayer.sharedInstance.fetchedObjects()
+        
         output.presentFetchedData(dataset)
     }
     
-    func updateData(data: String) {
-        
-    }
 }

@@ -68,6 +68,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func findNavigationController() -> UINavigationController? {
+        
+        let window = self.findOrCreateWindow()
+        guard let nc = window.rootViewController as? UINavigationController else {
+            return nil
+        }
+        return nc
+    }
     
     func findOrCreateNavigationControllerAndPush(vc: UIViewController) {
         

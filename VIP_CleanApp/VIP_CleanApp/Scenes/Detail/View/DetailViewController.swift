@@ -8,15 +8,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, DetailVIP_ViewProtocol, UITextFieldDelegate {
+class DetailViewController: UIViewController, UITextFieldDelegate {
 
-    var output:DetailVIP_InteractorProtocol?
-    var router:DetailVIP_RouterProtocol?
+    var input:DetailViewInputProtocol?
+    var router:DetailViewRouterProtocol?
+    var output:DetailViewOutputProtocol?
+    
     @IBOutlet var textField:UITextField?
     
-    func displayFetchedData(data:AnyObject) {
+    func displayFetchedData(data:String?) {
         
-        self.textField?.text = data as? String
+        self.textField?.text = data 
     }
     
     override func viewDidLoad() {
@@ -26,7 +28,7 @@ class DetailViewController: UIViewController, DetailVIP_ViewProtocol, UITextFiel
             
             return
         }
-        
+
         output.fetchData()
     }
 
@@ -39,7 +41,15 @@ class DetailViewController: UIViewController, DetailVIP_ViewProtocol, UITextFiel
     //MARK: - UITextFieldDelegate
     func textFieldDidEndEditing(textField: UITextField) {
      
-        output?.updateData(textField.text ?? "")
+        guard let input = self.input else {
+            
+            return
+        }
+        
+        input.updateData(textField.text ?? "", callback: {() in
+            
+            self.router?.closeDetail()
+        })
         
     }
     

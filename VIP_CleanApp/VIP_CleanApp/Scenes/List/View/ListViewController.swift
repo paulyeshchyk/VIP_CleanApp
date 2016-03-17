@@ -8,23 +8,27 @@
 
 import UIKit
 
-class ListViewController: UIViewController, ListVIP_ViewProtocol, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableView:UITableView?
     
     var dataToDisplay:[String]?
-    var output:ListVIP_InteractorProtocol?
-    var router:ListVIP_RouterProtocol?
+    var output:ListViewOutputProtocol?
+    var router:ListViewRouterProtocol?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
         self.tableView?.registerNib(UINib(nibName: "ListViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "ListViewCell")
+    }
 
+    override func viewDidAppear(animated: Bool) {
+
+        super.viewDidAppear(animated)
+        
         self.output?.fetchData()
     }
-    
     
     func displayFetchedData(data: AnyObject) {
         

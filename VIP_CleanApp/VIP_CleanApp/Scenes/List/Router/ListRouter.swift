@@ -7,9 +7,10 @@
 //
 
 import UIKit
-class ListRouter: ListVIP_RouterProtocol {
 
-    func openDetail(index:Int, data: AnyObject) {
+class ListRouter {
+
+    func openDetail(index:Int, data: String) {
         
         DetailConfigurator.configure(index, data:data) { (vc) -> () in
             
@@ -18,10 +19,11 @@ class ListRouter: ListVIP_RouterProtocol {
             }
             
             delegate.findOrCreateNavigationControllerAndPush(vc)
-            
         }
+    }
+    
+    func updateData(data: String) {
         
         
     }
-    
 }
