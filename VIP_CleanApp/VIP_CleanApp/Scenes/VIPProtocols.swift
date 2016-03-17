@@ -16,6 +16,7 @@ protocol VIP_ViewProtocol {
 protocol VIP_InteractorProtocol {
  
     func fetchData()
+    func updateData(data:String)
 }
 
 protocol VIP_PresenterProtocol {

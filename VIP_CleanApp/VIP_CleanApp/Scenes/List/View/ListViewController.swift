@@ -60,6 +60,6 @@ class ListViewController: UIViewController, ListVIP_ViewProtocol, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        self.router?.openDetail(self.dataToDisplay![indexPath.row])
+        self.router?.openDetail(indexPath.row, data:self.dataToDisplay![indexPath.row])
     }
 }

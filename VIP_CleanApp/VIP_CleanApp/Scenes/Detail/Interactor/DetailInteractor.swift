@@ -12,6 +12,7 @@ class DetailInteractor: DetailVIP_InteractorProtocol {
 
     var output:DetailVIP_PresenterProtocol?
     var data:AnyObject?
+    var index:Int?
 
     func fetchData() {
         
@@ -26,5 +27,10 @@ class DetailInteractor: DetailVIP_InteractorProtocol {
         }
         
         output.presentFetchedData(data)
+    }
+    
+    func updateData(data: String) {
+        
+        
     }
 }

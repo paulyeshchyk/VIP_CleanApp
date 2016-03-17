@@ -29,5 +29,5 @@ protocol ListVIP_PresenterProtocol:VIP_PresenterProtocol {
 
 protocol ListVIP_RouterProtocol:VIP_RouterProtocol {
     
-    func openDetail(data:AnyObject)
+    func openDetail(index:Int, data:AnyObject)
 }

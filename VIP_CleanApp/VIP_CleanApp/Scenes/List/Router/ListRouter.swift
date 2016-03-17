@@ -9,9 +9,9 @@
 import UIKit
 class ListRouter: ListVIP_RouterProtocol {
 
-    func openDetail(data: AnyObject) {
+    func openDetail(index:Int, data: AnyObject) {
         
-        DetailConfigurator.configure(data) { (vc) -> () in
+        DetailConfigurator.configure(index, data:data) { (vc) -> () in
             
             guard let delegate = UIApplication.sharedApplication().delegate as? AppDelegate else {
                 return

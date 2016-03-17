@@ -11,7 +11,7 @@ import UIKit
 class ListInteractor: ListVIP_InteractorProtocol {
 
     var output:ListVIP_PresenterProtocol?
- 
+    var dataset:[String] = ["C", "D"]
     
     func fetchData() {
         
@@ -19,7 +19,10 @@ class ListInteractor: ListVIP_InteractorProtocol {
             return
         }
         
-        let data = ["C","D"]
-        output.presentFetchedData(data)
+        output.presentFetchedData(dataset)
+    }
+    
+    func updateData(data: String) {
+        
     }
 }
